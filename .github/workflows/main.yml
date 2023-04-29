@@ -9,7 +9,7 @@ runs-on: windows-latest
 
 steps:
 - name: Download
-run: Invoke-WebRequest http://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip OutFile ngrok.zip  name: Extract
+run: Invoke-WebRequest http://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip  name: Extract Ngrok Files
 run: Expand-Archive ngrok.zip
 - name: Auth
 run: \ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
@@ -22,3 +22,4 @@ run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Ser
 - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString - sPlainText "P@ssword!" -Force)
 - name: Create Tunnel 
 run: .\ngrok\ngrok.exe tcp 3389
+
