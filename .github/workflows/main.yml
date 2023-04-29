@@ -22,4 +22,3 @@ run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Ser
 - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString - sPlainText "P@ssword!" -Force)
 - name: Create Tunnel 
 run: .\ngrok\ngrok.exe tcp 3389
-
